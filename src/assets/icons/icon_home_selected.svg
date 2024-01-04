@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon_home_selected</title>
+    <g id="教师端" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="tab-icon切图" transform="translate(-130.000000, -54.000000)">
+            <g id="icon_home_selected" transform="translate(130.000000, 54.000000)">
+                <rect id="矩形" fill-rule="nonzero" x="0" y="0" width="16" height="16"></rect>
+                <polygon id="路径" points="3 6 3 14 13 14 13 6 8 2"></polygon>
+                <polygon id="路径" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" points="3 14 3 6 1.33333333 7.33333333 8 2 14.6666667 7.33333333 13 6 13 14"></polygon>
+                <polygon id="路径" stroke="#FFFFFF" stroke-width="1.2" stroke-linejoin="round" points="6.33333333 9.66666667 6.33333333 14 9.66666667 14 9.66666667 9.66666667"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>
