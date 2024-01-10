@@ -10,6 +10,7 @@
                 <div class="lyx-asset__content">
                     <router-view />
                 </div>
+                <div>1</div>
             </div>
         </div>
     </div>
