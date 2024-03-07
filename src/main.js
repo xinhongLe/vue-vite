@@ -9,6 +9,9 @@ import 'element-plus/dist/index.css';
 import zhCn from 'element-plus/es/locale/lang/zh-cn';
 import Icon from './plugins/icon';
 
+import "./styles/index.scss";
+import "./styles/tree.scss";
+
 
 const app = createApp(App);
 app.use(router);

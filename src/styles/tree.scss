@@ -1,0 +1,81 @@
+.el-tree.tree-adjust {
+    --el-tree-node-hover-bg-color: transparent;
+    .el-icon {
+        padding: 0;
+        height: 16px;
+        width: 16px;
+        line-height: 16px;
+        margin-right: 8px;
+        span {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background-image: url(./images/icon_plus.png);
+            background-size: 16px 16px;
+            &:before {
+                content: "";
+                display: block;
+                width: 14px;
+                border-top: 1px dashed var(--el-border-color);
+                position: absolute;
+                left: -13px;
+                top: 8px;
+            }
+        }
+        &.expanded {
+            transform: rotate(0deg);
+            span {
+                background-image: url(./images/icon_remove.png);
+                &:after {
+                    content: "";
+                    border-left: 1px dashed var(--el-border-color);
+                    position: absolute;
+                    height: 18px;
+                    bottom: -20px;
+                    left: 7px;
+                }
+            }
+        }
+        &.is-leaf {
+            span {
+                background-image: none;
+                &:before {
+                    visibility: visible;
+                    display: block;
+                    width: 28px;
+                    left: -11px;
+                    top: 8px;
+                }
+            }
+        }
+    }
+    .el-tree-node__content {
+        height: 30px;
+        padding-left: 8px !important;
+    }
+    .el-tree-node__children {
+        padding-left: 20px;
+        .el-tree-node {
+            position: relative;
+            &:before {
+                content: "";
+                border-left: 1px dashed var(--el-border-color);
+                position: absolute;
+                top: 16px;
+                left: -5px;
+                bottom: -15px;
+            }
+            &:last-child {
+                &:before {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    > .el-tree-node > .el-tree-node__content {
+        .el-icon span:before {
+            display: none;
+        }
+    }
+}
