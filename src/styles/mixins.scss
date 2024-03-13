@@ -1,0 +1,10 @@
+@mixin flex($jc: center, $ac: center, $fd: row) {
+    display: flex;
+    justify-content: $jc;
+    align-items: $ac;
+    flex-direction: $fd;
+}
+
+@mixin font($family: HarmonyOSBold) {
+    font-family: $family, sans-serif;
+}

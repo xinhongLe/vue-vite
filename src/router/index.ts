@@ -21,6 +21,16 @@ export const menuRoutes: Array<RouteRecordRaw> = [
         },
         component: () => import("@/views/slot/index.vue")
     },
+    {
+        path: "/searchTable",
+        name: "searchTable",
+        meta: {
+            title: "查询页面",
+            icon: "home",
+            code: "ASSET_HOME"
+        },
+        component: () => import("@/views/searchTable/index.vue")
+    },
     // {
     //     path: "/searchTable",
     //     name: "searchTable",
