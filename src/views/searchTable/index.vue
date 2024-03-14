@@ -55,7 +55,7 @@ const state = reactive({
         SubjectId: '',
     },
     data: {
-        list: [],
+        list: [{}, {}],
         pager: {
             Total: 0,
             PageNumber: 1,
@@ -68,7 +68,6 @@ const { detailVisible, data, type, formData, phaseAndSubjectList, currentRow } =
 
 const handleQuery = (params: paramProps) => {
     state.form = params
-    _getCollectionPointList()
 }
 
 const handleTableChange = (pager: { PageNumber: number; PageSize: number }) => {

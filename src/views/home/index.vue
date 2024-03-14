@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
        <div class="left">
            <el-tree
                ref="treeRef"
@@ -17,12 +17,20 @@
                :filter-node-method="filterNode"
            />
        </div>
+        <div class="right">
+            <Ckeditor v-model:content="obj.text" :name="'analyze'" :readonly="false" />
+        </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue"
+import {reactive, ref} from "vue"
 const selectedTreeNode = ref("");
+import Ckeditor from './components/ckEditor.vue'
+
+const obj = reactive({
+    text: ""
+})
 const treeList = [
     {
         label: 'Level one 1',
@@ -81,6 +89,14 @@ const filterNode = (value, data) => {
 };
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+.container{
+    @include flex($jc: flex-start, $ac:flex-start );
+    .left{
+        margin-right: 40px;
+    }
+    .right{
+        flex: 1;
+    }
+}
 </style>
