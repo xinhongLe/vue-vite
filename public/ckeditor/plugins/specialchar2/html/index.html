@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8" />
+    <title>搜狗符号大全</title>
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta content="always" name="referrer" />
+    <meta name="renderer" content="webkit" />
+    <meta name="robots" content="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="stylesheet" href="./reset.css">
+</head>
+
+<body>
+    <div class="specialchar2-container">
+        <div id="specialcharNav" class="container-left">
+        </div>
+        <div id="specialcharContent" class="container-right"></div>
+    </div>
+  <!-- #endregion -->
+  <script src="./data.js"></script>
+  <script>
+        function setNav(val) {
+            var navItemEl = document.getElementById("specialcharNav")
+            if (!navItemEl) return
+            for (var i = 0; i < val.length; i++) {
+                var p = document.createElement("p");
+                p.setAttribute("class","container-left-item")
+                if (!i) {
+                    p.setAttribute("class","container-left-item container-left-item-active")
+                } 
+                p.onclick = changeNavItem
+                p.textContent = val[i].type
+                navItemEl.appendChild(p);
+            }
+        }
+        setNav(data)
+        setContent(data[0].data)
+        function setContent(val) {
+            var contentPreviewEl = document.getElementById("specialcharContent")
+            while (contentPreviewEl.firstChild) {
+                contentPreviewEl.removeChild(contentPreviewEl.firstChild);
+            }
+            for (var i = 0; i < val.length; i++) {
+                var wrapperEl = document.createElement("div");
+                wrapperEl.classList.add("content-wrapper")
+                for (var j = 0; j < val[i].length; j++) {
+                    var itemEl = document.createElement("div");
+                    itemEl.classList.add("item-box")
+                    // itemEl.onclick = selected
+                    itemEl.innerHTML = `
+                        <div class="item-content">
+                            ${val[i][j].value}
+                        </div>
+                        <div class="item-popper">
+                            <p class="item-popper-content">${val[i][j].value}</p>
+                            <p class="item-popper-desc">${val[i][j].descript}</p>
+                        </div>
+                    `
+                    wrapperEl.appendChild(itemEl);
+                }
+                contentPreviewEl.appendChild(wrapperEl);
+            }
+            // 考虑边界问题
+            var listEl = document.querySelectorAll('.item-box');
+            var containerRect = contentPreviewEl.getBoundingClientRect();
+            for (var i = 0; i < listEl.length; i++) {
+                var popoverRect = listEl[i].getBoundingClientRect();
+                if (popoverRect.right + 86 > containerRect.right) {
+                    listEl[i].lastElementChild.classList.add("item-popper-left")
+                }else {
+                    listEl[i].lastElementChild.classList.add("item-popper-right")
+                }
+                if (popoverRect.bottom + 86 > containerRect.bottom) {
+                    listEl[i].lastElementChild.classList.add("item-popper-up")
+                }else {
+                    listEl[i].lastElementChild.classList.add("item-popper-down")
+                }
+            }
+        }
+        function changeNavItem(event) {
+            const el = event.target
+            if (el.getAttribute("class").includes("container-left-item-active")) return
+            el.classList.add("container-left-item-active");
+            var parentElement = el.parentNode;
+            var siblings = parentElement.children;
+            for (var i = 0; i < siblings.length; i++) {
+                if (siblings[i] !== el) {
+                    siblings[i].classList.remove("container-left-item-active");
+                }
+            }
+            for (var i = 0; i < data.length; i++) {
+                if (data[i].type === el.textContent) {
+                    setContent(data[i].data)
+                }
+            }
+        }
+  </script>
+</body>
+
+</html>

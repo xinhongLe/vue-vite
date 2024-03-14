@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+html,body {
+    width: 100%;
+    height: 100%;
+}
+.specialchar2-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+.container-left {
+    margin-right: 10px;
+    width: 100px;
+    box-shadow: 1px 1px 1px -1px rgba(209, 209, 209, 0.8);
+    font-size: 14px;
+}
+.container-left-item {
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+}
+.container-left-item-active {
+    color: #ffffff;
+    background-color:rgb(255, 120, 70) ;
+}
+.container-right {
+    flex: 1;
+    overflow-y: auto;
+}
+.content-wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.content-wrapper:not(:first-of-type) {
+    margin-top: 40px;
+}
+.item-box {
+    position: relative;
+    border: 1px solid rgba(209, 209, 209, 0.8);
+    width: 38px;
+    height: 38px;
+    margin: 1px;
+    cursor: pointer;
+}
+.item-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.item-popper {
+    position: absolute;
+    overflow: hidden;
+    display: none;
+    width: 78px;
+    height: 78px;
+    z-index: 99;
+    padding: 4px;
+}
+.item-popper-right {
+    left: 0;
+}
+.item-popper-down {
+    top: 100%;
+}
+.item-popper-left {
+    right: 0;
+}
+.item-popper-up {
+    bottom: 100%;
+}
+.item-popper-content {
+    height: 50px;
+    width: 100%;
+    line-height: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0px 1px 1px -1px rgba(255, 120, 70, 0.8);
+} 
+.item-popper-desc {
+    height: 28px;
+    width: 100px;
+    line-height: 28px;
+    /* text-align: center; */
+    font-size: 12px;
+    display: inline-block;
+    animation: scrollTextInner 6s linear infinite;
+} 
+.item-content:hover {
+    background-color:rgb(255, 251, 250);
+    border: 1px solid rgb(255, 120, 70);
+}
+.item-content:hover + .item-popper {
+    background-color:rgb(255, 251, 250);
+    border: 1px solid rgb(255, 120, 70);
+    display: block;
+}
+@keyframes scrollTextInner {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
